@@ -29,9 +29,9 @@ do {                               \
     printf(fmt, ##__VA_ARGS__);    \
 } while(0)
 ```
-4. Use all lower case letters and '_' separators for variable names
-5. Prefix g_ to a global variable name
-6. Place the * close to the variable name not pointer type
+6. Use all lower case letters and '_' separators for variable names
+7. Prefix g_ to a global variable name
+8. Place the * close to the variable name not pointer type
 ```
 [Example]:
 int g_cnt = 0;
@@ -41,34 +41,79 @@ void func() {
     int **ptr = NULL;
 }
 ```
-<TODO> structure, enum
+9. Declare structure names with a suffix '_s' and define its type by a suffix '_t'
+```
+[Example]:
+struct node_s {
+    int value;
+    struct node_s * ext;
+};
+typedef struct node_s node_t;
+```
 
-7. Follow K&R style, the else/else if part of an if-else statement and the while part of a do-while statement should appear on the same line as the close brace
-8. Put a space between braces and a condition, all if-else/while/do statements
+10. Follow K&R style, the else/else if part of an if-else statement and the while part of a do-while statement should appear on the same line as the close brace
 ```
 [Example]:
 if (condition) {
     ...
-} else if {
+} else {
+^
+    ...
+}
+```
+11. Put a space between braces and keywords of if-else/while/do statements, and condition
+```
+[Example]:
+if (condition) {
+              ^
+    ...
+} else {
+ ^    ^
     ...
 }
 ```
 ```
 [Example 2]:
 do {
+  ^
     ...
-} while(1);
+} while (1);
+ ^
 ```
-9. All if-else/while/do statements must either have braces or be on a sigle line if only one single statement
+12. Put a space between conditions and keywords of if-else/for/while/do statements
 ```
 [Example]:
-if (TRUE == val) ret_val = 100;
+if (condition) {
+  ^
+    ...
+}
 ```
+13. All if-else/for/while/do statements must either have braces or be on a sigle line if only one single statement
 ```
-[Example 2]:
-if (TRUE == val) {
+[Example]:
+if (condition) {
     ret_val = 100;
 }
+or
+if (condition) ret_val = 100;
+```
+14. Put spaces inside a condition of each expression except start and end of parenthese, and at end of semicolons 
+```
+[Example]:
+if (TRUE == val && FALSE == val2) {
+   ^    ^  ^   ^  ^     ^  ^    ^
+    ...
+}
+```
+15. Sugget to put the constant on the left hand side of an equality/inequality comparison.
+16. MUST document Null Statements
+```
+[Example]:
+while (*dest++ = *src++) {
+    ;
+} 
+or
+while (*dest++ = *src++) ;
 ```
 
 
