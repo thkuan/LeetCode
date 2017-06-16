@@ -1,10 +1,25 @@
 Continuing practice is the way to keep thinking
 
-## C/C++ Coding Style
-1. Indent with 4 spaces instead of tabs
+## C Coding Style
+1. Include files should protect against multiple inclusion through the use of macros that "guard" the files.
+```
+[Example]:
+#ifndef MY_SOCKET_H
+#define MY_SOCKET_H  /* NOT _MY_SOKCET_H_ */
+...
+#endif
+```
+2. Indent with 4 spaces instead of tabs
 
-2. Put #defines and macros in all upper using '_' separators
-3. Use "do { ... } while (0)" if the macro is more than a single statement, so that a trailing semicolon works.
+3. Put #define and macros in all upper using '_' separators
+4. Wrap the expression in macros with parenthesis to avoid potential communitive operation abiguity.
+```
+[Example]:
+#define TRUE (1)
+#define FALSE (0)
+#define ADD(x,y) ((x) + (y))
+```
+5. Use "do { ... } while (0)" if the macro is more than a single statement, so that a trailing semicolon works.
 ```
 [Example]:
 #define TRUE (1)
@@ -26,6 +41,7 @@ void func() {
     int **ptr = NULL;
 }
 ```
+<TODO> structure, enum
 
 7. Follow K&R style, the else/else if part of an if-else statement and the while part of a do-while statement should appear on the same line as the close brace
 8. Put a space between braces and a condition, all if-else/while/do statements
@@ -38,7 +54,7 @@ if (condition) {
 }
 ```
 ```
-[Example2]:
+[Example 2]:
 do {
     ...
 } while(1);
@@ -49,7 +65,7 @@ do {
 if (TRUE == val) ret_val = 100;
 ```
 ```
-[Example]:
+[Example 2]:
 if (TRUE == val) {
     ret_val = 100;
 }
