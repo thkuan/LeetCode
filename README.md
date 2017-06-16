@@ -57,7 +57,7 @@ typedef struct node_s node_t;
 if (condition) {
     ...
 } else {
-^
+^^^^^^
     ...
 }
 ```
@@ -97,7 +97,7 @@ if (condition) {
 or
 if (condition) ret_val = 100;
 ```
-14. Put spaces inside a condition of each expression except start and end of parenthese, and at end of semicolons 
+14. Put spaces inside a condition of each expression except the start and end of parenthesis, and at the end of semicolons 
 ```
 [Example]:
 if (TRUE == val && FALSE == val2) {
@@ -105,8 +105,26 @@ if (TRUE == val && FALSE == val2) {
     ...
 }
 ```
-15. Sugget to put the constant on the left hand side of an equality/inequality comparison.
-16. MUST document Null Statements
+```
+[Example 2]:
+for (int i = 0; i < size; i++) {
+    ^   ^ ^ ^ ^^ ^ ^    ^^   ^
+    ...
+}
+```
+15. DO NOT put spaces inside brackets
+```
+[Example]:
+int arr[] = {1, 2, 3, 4, 5, 6};
+int sum = 0;
+for (int i = 0; i < 3; i++) {
+    sum = arr[2*i];
+              ^^^
+    ...
+}
+```
+16. Sugget to put the constant on the left hand side of an equality/inequality comparison.
+17. MUST document Null Statements
 ```
 [Example]:
 while (*dest++ = *src++) {
