@@ -26,7 +26,9 @@ void func() {
     int **ptr = NULL;
 }
 ```
-7. Put a space between parenthes and a condition, all if-else/while/do statements, or braces
+
+7. Follow K&R style, the else/else if part of an if-else statement and the while part of a do-while statement should appear on the same line as the close brace
+8. Put a space between braces and a condition, all if-else/while/do statements
 ```
 [Example]:
 if (condition) {
@@ -41,12 +43,18 @@ do {
     ...
 } while(1);
 ```
-
-8. All if-else/while/do statements require braces even if there is only a single statement within the braces.
+9. All if-else/while/do statements must either have braces or be on a sigle line if only one single statement
 ```
 [Example]:
 if (TRUE == val) ret_val = 100;
 ```
+```
+[Example]:
+if (TRUE == val) {
+    ret_val = 100;
+}
+```
+
 
 ##Reference:
 1. https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html
