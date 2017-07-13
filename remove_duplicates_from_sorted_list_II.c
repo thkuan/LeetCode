@@ -92,6 +92,17 @@ list_node_t *delete_duplicates(list_node_t *head) {
             }
        }
     }
+    if (mark_for_rm == 1) {
+        rm = cur;
+        if (prev != cur) {
+            prev->next = cur->next;
+        } else {
+            prev = cur->next;
+            head = prev;
+        }
+        cur = cur->next;
+        mark_for_rm =0;
+    }
 
     return head;
 }
