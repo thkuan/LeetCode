@@ -62,52 +62,40 @@ list_node_t *delete_duplicates(list_node_t *head) {
     if (cur != NULL) {
         prev = head;
     }
-    while (cur->next != NULL) {
-        if (cur->val == cur->next->val) {
+    while (cur != NULL) {
+        while (cur->next != NULL && cur->val == cur->next->val) {
+            mark_for_rm = 1;
             rm = cur;
-            if (prev != cur) {
-                prev->next = cur->next;
-            } else {
+            if (prev == cur) {
                 prev = cur->next;
                 head = prev;
+            } else {
+                prev->next = cur->next;
             }
             cur = cur->next;
             free(rm);
-            mark_for_rm = 1;
-        } else {
-            if (mark_for_rm == 1) {
-                rm = cur;
-                if (prev != cur) {
-                    prev->next = cur->next;
-                } else {
-                    prev = cur->next;
-                    head = prev;
-                }
-                cur = cur->next;
-                free(rm);
-                mark_for_rm = 0;
-            } else {
-                prev = cur;
-                cur = cur->next;
-            }
-       }
-    }
-    if (mark_for_rm == 1) {
-        rm = cur;
-        if (prev != cur) {
-            prev->next = cur->next;
-        } else {
-            prev = cur->next;
-            head = prev;
         }
-        cur = cur->next;
-        mark_for_rm =0;
+        if (mark_for_rm == 1) {
+            mark_for_rm = 0;
+            rm = cur;
+            if (prev == cur) {
+                prev = cur->next;
+                head = prev;
+            } else {
+                prev->next = cur->next;
+            }
+            cur = cur->next;
+            free(rm);
+        } else {
+            prev = cur;
+            cur = cur->next;
+        }
     }
 
     return head;
 }
 
-#define TEST_PATTERN    (1)
+#define TEST_PATTERN    (4)
 int main()
 {
     list_node_t *root = NULL;
