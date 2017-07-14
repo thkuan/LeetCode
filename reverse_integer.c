@@ -11,10 +11,15 @@ int reverse(int x) {
     return new;
 }
 
+#define TEST_PATTERN    (1)
+
 int main()
 {
+#if (TEST_PATTERN == 1)
     int test = -198765;
-    
+#elif (TEST_PATTERN == 2)
+    int test = 198765;
+#endif
     printf("%d -> %d\n", test, reverse(test));
 
     return 0;
