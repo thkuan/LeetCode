@@ -121,6 +121,6 @@ while (*dest++ = *src++) ;
 ```
 
 
-##Reference:
+**[Reference]**:
 1. https://users.ece.cmu.edu/~eno/coding/CCodingStandard.html
 2. http://ieng9.ucsd.edu/~cs30x/indhill-cstyle.html
