@@ -1,4 +1,7 @@
-Continuing practice is the way to keep thinking
+**[Reference]**:
+1. [https://leetcode.com/](https://leetcode.com/)
+2. [https://github.com/soulmachine/leetcode](https://github.com/soulmachine/leetcode)
+3. [https://github.com/lennylxx/leetcode](https://github.com/lennylxx/leetcode)
 
 ## C Coding Style
 1. Include files should protect against multiple inclusion through the use of macros that "guard" the files.
