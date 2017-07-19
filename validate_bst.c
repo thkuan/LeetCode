@@ -24,7 +24,7 @@ bool isValidSubBST(struct TreeNode* root, int min, int max) {
 }
 
 bool isValidBST(struct TreeNode* root) {
-    return isValidSubBST(struct TreeNode* root, INT_MIN, INT_MAX);
+    return isValidSubBST(root, INT_MIN, INT_MAX);
 }
 
 /* Common error, think of it:
