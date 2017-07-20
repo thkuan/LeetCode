@@ -46,7 +46,6 @@ list_node_t *mergeTwoLists(list_node_t *l1, list_node_t *l2) {
     } else {
         head = l2;
         l2 = l2->next;
-
     }
     /* Relink by cur pointer */
     cur = head;
