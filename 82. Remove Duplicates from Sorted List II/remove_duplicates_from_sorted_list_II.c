@@ -9,7 +9,7 @@ typedef struct list_node_s {
 void insert_node(list_node_t **root, int val) {
     list_node_t *cur = *root;
     list_node_t *new = (list_node_t *) malloc(sizeof(list_node_t));
-    
+
     if (new != NULL) {
         new->val = val;
         new->next = NULL;
@@ -24,18 +24,11 @@ void insert_node(list_node_t **root, int val) {
             new->next = *root;
             *root = new;
         } else {
-            while (cur->next != NULL) {
-                if (val <= cur->next->val) {
-                    new->next = cur->next;
-                    cur->next = new;
-                    break;
-                } else {
-                    cur = cur->next;
-                }
+            while (cur->next != NULL && val > cur->next->val) {
+                cur = cur->next;
             }
-            if (cur->next == NULL) {
-                cur->next = new;
-            }
+            new->next = cur->next;
+            cur->next = new;
         }
     }
 
